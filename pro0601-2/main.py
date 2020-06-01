@@ -1,25 +1,17 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-   return '''
-   <html>
-   <body>
-   <form action="/login2">
-      <input type="text" name="name">
-      <input type="text" name="password">
-      <input type="submit">
-   </form>
-   </body>
-   </html>
-   '''
+   return render_template('home.html')
 
 @app.route('/login2')
-def login3():
+def login2():
    name = request.args.get('name');
    pwd = request.args.get('password');   
-   return '<html><body>welcome %s, %s</body></html>' % (name, pwd)
+   args = {'name':name, 'pwd':pwd}
+   return render_template('login2.html', result=args)
+   # return '<html><body>welcome %s, %s</body></html>' % (name, pwd)
    
 
 
