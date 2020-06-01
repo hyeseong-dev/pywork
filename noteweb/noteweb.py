@@ -3,6 +3,12 @@ app = Flask(__name__)
 
 memos = []
 
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
 @app.route("/noteForm")
 def noteForm():
     return render_template("noteForm.html")
