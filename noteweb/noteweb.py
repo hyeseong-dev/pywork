@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
+
+memos = []
 
 @app.route("/noteForm")
 def noteForm():
@@ -8,7 +10,16 @@ def noteForm():
 
 @app.route("/noteList")
 def noteList():
-    return render_template("noteList.html")
+    global memos
+    
+    memo = request.args.get("memo")
+    memos.append(memo)
+
+    result = {
+        "memos":memos        
+        }
+
+    return render_template("noteList.html", result=result)
 
 
 if __name__ == '__main__':
