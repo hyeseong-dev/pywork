@@ -10,10 +10,8 @@
         <li>{{result.memos[4]}}</li>
     </ol>
     <ul>
-        <li>메모1입니다.</li>
-        <li>메모2입니다.</li>
-        <li>메모3입니다.</li>
-        <li>메모4입니다.</li>
-        <li>메모5입니다.</li>
+        {% for memo in result.memos %}
+        <li>{{memo}}</li>
+        {% endfor %}
     </ul>
 </html>
