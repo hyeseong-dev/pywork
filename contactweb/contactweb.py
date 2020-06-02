@@ -22,7 +22,8 @@ def contactList():
     name = request.args.get('name')
     phone = request.args.get('phone')
 
-    contact = [name, phone]
+    # contact = [name, phone]
+    contact = {'name':name, 'phone':phone}
     contacts.append(contact)
     result = {'contacts':contacts}
     return render_template('contactList.html', result=result)

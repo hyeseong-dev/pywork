@@ -5,10 +5,9 @@
         <hr>
         <h2>연락처 리스트</h2>
         <p><a href="/">메인메뉴</a>    <a href="/addContactForm">추가하기</a></p>
-        <ol>            
-            <li>{{result.contacts[0][0]}} : {{result.contacts[0][1]}}</li>            
+        <ol>
             {% for contact in result.contacts %}
-            <li>{{contact[0]}} : {{contact[1]}}</li>
+            <li>{{contact.name}} : {{contact.phone}}</li>
             {% endfor %}
         </ol>
     </body>
