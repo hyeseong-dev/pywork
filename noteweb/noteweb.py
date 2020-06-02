@@ -30,7 +30,10 @@ def noteList():
 
 @app.route("/noteDetail")
 def noteDetail():
-    return render_template("noteDetail.html")
+    index = request.args.get('index')
+    memo = memos[int(index)]
+    result = {'index':index, 'memo':memo}
+    return render_template("noteDetail.html", result=result)
 
 
 if __name__ == '__main__':

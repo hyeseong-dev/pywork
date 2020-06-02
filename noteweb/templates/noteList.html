@@ -1,17 +1,10 @@
 <html>
     <h1>메모 관리 프로그램</h1>
     <h2>메모 리스트</h2>
-    <a href="/noteForm">메모추가</a>
-    <ol>
-        <li>{{result.memos[0]}}</li>
-        <li>{{result.memos[1]}}</li>
-        <li>{{result.memos[2]}}</li>
-        <li>{{result.memos[3]}}</li>
-        <li>{{result.memos[4]}}</li>
-    </ol>
+    <a href="/noteAddForm">메모추가</a>
     <ul>
         {% for memo in result.memos %}
-        <li>{{memo}}</li>
+        <li><a href="/noteDetail?index={{loop.index0}}">{{memo}}</a></li>
         {% endfor %}
     </ul>
 </html>
