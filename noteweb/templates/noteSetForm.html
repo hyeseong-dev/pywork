@@ -1,8 +1,11 @@
-<html>
-    <form action="/noteList">
-        <h1>노트 관리 프로그램</h1>
+<html>    
+    <h1>노트 관리 프로그램</h1>
+    <h2>수정하기화면</h2>
+    <h3><a href="/">홈으로</a></h3>
+    
+    <form action="/noteList"></form>        
         메모: 
-        <input type="text" name="memo">
+        <input type="text" name="memo" value="{{result.memo}}">
         <input type="submit">
     </form>
 </html>
