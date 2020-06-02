@@ -9,9 +9,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/noteForm")
-def noteForm():
-    return render_template("noteForm.html")
+@app.route("/noteAddForm")
+def noteAddForm():
+    return render_template("noteAddForm.html")
 
 
 @app.route("/noteList")
@@ -28,5 +28,10 @@ def noteList():
     return render_template("noteList.html", result=result)
 
 
+@app.route("/noteDetail")
+def noteDetail():
+    return render_template("noteDetail.html")
+
+
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(host='0.0.0.0', port=80, debug = True)
