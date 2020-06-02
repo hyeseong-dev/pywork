@@ -18,8 +18,10 @@ def addContactForm():
 @app.route('/contactList')
 def contactList():
     global contacts
+    
     name = request.args.get('name')
     phone = request.args.get('phone')
+
     contact = [name, phone]
     contacts.append(contact)
     result = {'contacts':contacts}
