@@ -1,12 +1,15 @@
-<html>    
-    <h1>노트 관리 프로그램</h1>
-    <h2>수정하기화면</h2>
-    <h3><a href="/">홈으로</a></h3>
-    
-    <form action="/setNote">
-        메모: 
-        <input type="hidden" name="index" value="{{result.index}}">
-        <input type="text" name="memo" value="{{result.memo}}">
-        <input type="submit" value="수정">
-    </form>
+<!doctype html>
+<html lang="ko">
+	<head>
+        {% include 'head.html' %}
+	</head>
+	<body>
+        {% include 'header.html' %}
+        <form action="/setNote">
+            메모: 
+            <input type="hidden" name="index" value="{{result.index}}">
+            <input type="text" name="memo" value="{{result.memo}}">
+            <input type="submit" value="수정">
+        </form>
+    </body>
 </html>

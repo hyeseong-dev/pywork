@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>노트 프로그램</h1>
-        <h2>메모 상세 화면</h2>
-        <h3><a href="/">홈으로</a></h3>
+<!doctype html>
+<html lang="ko">
+	<head>
+        {% include 'head.html' %}
+	</head>
+	<body>
+        {% include 'header.html' %}
         <p>{{result.index}} : {{result.memo}}</p>
         <p>
             <a href="noteSetForm?index={{result.index}}">수정</a>

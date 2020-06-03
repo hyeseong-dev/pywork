@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
-memos = []
+memos = [
+    'memo1', 
+    'memo2', 
+    'memo3'
+]
 
 
 @app.route("/")
@@ -12,6 +16,7 @@ def index():
 @app.route("/noteAddForm")
 def noteAddForm():
     return render_template("noteAddForm.html")
+
 
 @app.route("/addNote")
 def addNote():
@@ -44,14 +49,14 @@ def noteSetForm():
     result = {'index':index, 'memo':memo}
     return render_template('noteSetForm.html', result=result)
 
+
 @app.route("/setNote")
 def setNote():
     index = request.args.get("index")
     memo = request.args.get("memo")
-
     memos[int(index)] = memo
-
     return redirect("/noteList")
+
 
 @app.route("/delNote")
 def delNote():
@@ -59,8 +64,6 @@ def delNote():
     # memos.remove(int(index))
     del memos[int(index)]
     return redirect("/noteList")
-
-
 
 
 if __name__ == '__main__':

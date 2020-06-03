@@ -1,10 +1,15 @@
-<html>
-    <h1>노트 관리 프로그램</h1>
-    <h3><a href="/">홈으로</a></h3>
-    
-    <form action="/addNote">        
-        메모: 
-        <input type="text" name="memo">
-        <input type="submit" value="추가">
-    </form>
+<!doctype html>
+<html lang="ko">
+	<head>
+        {% include 'head.html' %}
+	</head>
+	<body>
+        {% include 'header.html' %}        
+        <form action="/addNote">        
+            메모: 
+            <input type="text" name="memo">
+            <input type="submit" value="추가">
+        </form>
+        <p><a href="/noteAddForm" class="w3-button w3-black">추가</a></p>
+    </body>
 </html>
