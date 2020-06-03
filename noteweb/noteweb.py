@@ -53,6 +53,14 @@ def setNote():
 
     return redirect("/noteList")
 
+@app.route("/delNote")
+def delNote():
+    index = request.args.get("index")
+    # memos.remove(int(index))
+    del memos[int(index)]
+    return redirect("/noteList")
+
+
 
 
 if __name__ == '__main__':
