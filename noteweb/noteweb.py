@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 memos = []
@@ -13,18 +13,19 @@ def index():
 def noteAddForm():
     return render_template("noteAddForm.html")
 
+@app.route("/addNote")
+def addNote():
+    global memos    
+    memo = request.args.get("memo")
+    memos.append(memo)
+    return redirect("/noteList")
+
 
 @app.route("/noteList")
 def noteList():
-    global memos
-    
-    memo = request.args.get("memo")
-    memos.append(memo)
-
     result = {
         "memos":memos        
         }
-
     return render_template("noteList.html", result=result)
 
 
@@ -42,6 +43,16 @@ def noteSetForm():
     memo = memos[int(index)]
     result = {'index':index, 'memo':memo}
     return render_template('noteSetForm.html', result=result)
+
+@app.route("/setNote")
+def setNote():
+    index = request.args.get("index")
+    memo = request.args.get("memo")
+
+    memos[int(index)] = memo
+
+    return redirect("/noteList")
+
 
 
 if __name__ == '__main__':

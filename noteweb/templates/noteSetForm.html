@@ -3,9 +3,10 @@
     <h2>수정하기화면</h2>
     <h3><a href="/">홈으로</a></h3>
     
-    <form action="/noteList"></form>        
+    <form action="/setNote">
         메모: 
+        <input type="hidden" name="index" value="{{result.index}}">
         <input type="text" name="memo" value="{{result.memo}}">
-        <input type="submit">
+        <input type="submit" value="수정">
     </form>
 </html>
