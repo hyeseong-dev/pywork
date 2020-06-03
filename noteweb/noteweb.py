@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect
+from NoteDao import NoteDao
+
 app = Flask(__name__)
 
 memos = [
@@ -27,7 +29,8 @@ def addNote():
 
 
 @app.route("/noteList")
-def noteList():
+def noteList():    
+    memos = NoteDao.selectMemos()    
     result = {
         "memos":memos        
         }
@@ -37,7 +40,7 @@ def noteList():
 @app.route("/noteDetail")
 def noteDetail():
     index = request.args.get('index')
-    memo = memos[int(index)]
+    memo = NoteDao.selectMemo(index)
     result = {'index':index, 'memo':memo}
     return render_template('noteDetail.html', result=result)
 
@@ -45,7 +48,7 @@ def noteDetail():
 @app.route("/noteSetForm")
 def noteSetForm():
     index = request.args.get('index')
-    memo = memos[int(index)]
+    memo = NoteDao.selectMemo(index)
     result = {'index':index, 'memo':memo}
     return render_template('noteSetForm.html', result=result)
 
@@ -67,4 +70,4 @@ def delNote():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug = True)
+    app.run(host='0.0.0.0', port=5005, debug = True)
