@@ -8,10 +8,11 @@ cursor = conn.cursor()
 
 # INSERT 문
 memo = '1234'
-cursor.execute('INSERT INTO memo(no, memo) VALUES(?, ?)', (10, memo)) 
+cursor.execute('INSERT INTO memo(memo) VALUES(?)', (memo,)) 
+conn.commit()
 
 # SELECT 문 - 한개
-cursor.execute('SELECT * FROM memo WHERE no=1')
+cursor.execute('SELECT * FROM memo WHERE no=2')
 memo = cursor.fetchone()
 print('memo(%s, %s)' % (memo[0], memo[1]))
 
@@ -20,4 +21,3 @@ cursor.execute('SELECT * FROM memo')
 memos = cursor.fetchall()
 for memo in memos:
     print('memo(%s, %s)' % (memo[0], memo[1]))
-
