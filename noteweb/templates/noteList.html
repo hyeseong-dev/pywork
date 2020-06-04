@@ -7,7 +7,7 @@
         {% include 'header.html' %}
         <ul class="w3-ul w3-hoverable">
             {% for memo in result.memos %}
-            <li><a href="/noteDetail?index={{loop.index0}}">{{memo}}</a></li>
+            <li><a href="/noteDetail?index={{loop.index0}}">{{memo[0]}} - {{memo[1]}}</a></li>
             {% endfor %}
         </ul>
         <p><a href="/noteAddForm" class="w3-button w3-black">추가</a></p>
