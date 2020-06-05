@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>MiniCafe</title>
+    </head>
+    <body>
+        <header class="w3-padding w3-green">
+            <h2>MINICAFE</h2>
+            <div class="w3-right-align"><a href="#">로그인</a> | <a href="#">회원가입</a></div>
+        </header>
+        <nav class="w3-bar w3-black">
+            <a class="w3-bar-item w3-button w3-mobile" href="/index.html">HOME</a>
+            <a class="w3-bar-item w3-button w3-mobile" href="/member/memberList.html">회원관리</a>
+            <a class="w3-bar-item w3-button w3-mobile" href="#">카페</a>
+        </nav>
+        <section class="w3-center">
+            <h3>회원 목록</h3>          
+            <table class="w3-table-all w3-hoverable">
+                <tr><th>번호</th><th>아이디</th><th>이름</th></tr>
+                {% for member in result.members %}
+                <tr><td>{{loop.index}}</td><td>{{member.username}}</td><td><a href="/member/memberDetail.html">{{member.name}}</a></td></tr>
+                {% endfor %}
+                
+            </table>
+            <div class="w3-padding">
+                <div class="w3-bar">
+                    <a href="#" class="w3-button">&laquo;</a>
+                    <a href="#" class="w3-button w3-green">1</a>
+                    <a href="#" class="w3-button">2</a>
+                    <a href="#" class="w3-button">3</a>
+                    <a href="#" class="w3-button">4</a>
+                    <a href="#" class="w3-button">&raquo;</a>
+                </div>
+                <div class="w3-right-align">
+                    <a class="w3-button w3-black" href="#">추가</a>
+                </div>
+            </div>
+        </section>
+        <footer class="w3-center w3-black w3-padding">            
+            Copyright ⓒ <a href="http://www.hkit.kr/">Hkit.</a> All rights reserved.
+        </footer>
+    </body>
+</html>
