@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 members = [
@@ -18,12 +18,22 @@ members = [
 def index():
     return render_template('index.html')
 
+
 @app.route('/member/memberList.html')
-def memberList():
-    result = {
-        'members': members
-    }
+def memberList():   
+    result = {'members': members}
     return render_template('member/memberList.html', result=result)
+
+
+@app.route('/member/addMember')
+def addMember():
+    username = request.args.get('username')
+    name = request.args.get('name')
+    password = request.args.get('password')
+    member = {'username':username, 'name':name, 'password':password}
+    members.append(member)
+    return redirect('/member/memberList.html')
+
 
 @app.route('/member/memberDetail.html')
 def memberDetail():
