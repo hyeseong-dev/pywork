@@ -32,7 +32,7 @@ def addMember():
     password = request.args.get('password')
     member = {'username':username, 'name':name, 'password':password}
     members.append(member)
-    return redirect('/member/memberList.html')
+    return redirect('member/memberList.html')
 
 
 @app.route('/member/memberDetail.html')
@@ -42,6 +42,11 @@ def memberDetail():
 @app.route('/member/addMemberForm.html')
 def addMemberForm():
     return render_template('member/addMemberForm.html')
+
+@app.route('/member/loginForm.html')
+def loginForm():
+    return render_template('/member/loginForm.html')
+
 
 @app.route('/member/setMemberForm.html')
 def setMemberForm():
