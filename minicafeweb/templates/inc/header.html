@@ -1,0 +1,13 @@
+<header class="w3-padding w3-green">
+    <h2>MINICAFE</h2>
+    {% if 'logged_in' in session %}        
+    <div class="w3-right-align">
+        {% if session.role == 'ADMIN' %}
+        <a href="#">관리자</a> | 
+        {% endif %}        
+        <a href="/member/logout">로그아웃</a>
+    </div>        
+    {% else %}
+    <div class="w3-right-align"><a href="/member/loginForm.html">로그인</a> | <a href="#">회원가입</a></div>
+    {% endif %}
+</header>
